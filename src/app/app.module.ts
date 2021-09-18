@@ -13,13 +13,19 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ListeOrdonnancesComponent } from './liste-ordonnances/liste-ordonnances.component';
+import { AjoutOrdonnanceComponent } from './ajout-ordonnance/ajout-ordonnance.component';
+import { GestionUsersComponent } from './users/gestion-users/gestion-users.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ListeOrdonnancesComponent,
+    AjoutOrdonnanceComponent,
+    GestionUsersComponent
   ],
   imports: [
     BrowserModule,

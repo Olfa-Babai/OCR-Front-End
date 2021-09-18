@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Utilisateur } from './utilisateur';
+import { SignupComponent } from './examples/signup/signup.component';
 
 const baseUrl = 'http://localhost:8080/utilisateur';
 
@@ -7,34 +9,38 @@ const baseUrl = 'http://localhost:8080/utilisateur';
   providedIn: 'root'
 })
 export class UtilisateurService {
+  formData : SignupComponent
 
   constructor(private http: HttpClient) { }
-
+  url : string;
+  
   getAll() {
-    return this.http.get(baseUrl);
+    this.url=baseUrl+'/afficher';
+    return this.http.get(this.url);
   }
 
   get(id) {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
-  create(data) {
-    return this.http.post(baseUrl, data);
+  create(u:Utilisateur) {
+    this.url=baseUrl+'/ajouter';
+    return this.http.post(this.url, u);
   }
 
-  update(id, data) {
-    return this.http.put(`${baseUrl}/${id}`, data);
+  update(id, u:Utilisateur) {
+    this.url=baseUrl+'/maj';
+    return this.http.put(`${this.url}/${id}`, u);
   }
 
   delete(id) {
-    return this.http.delete(`${baseUrl}/${id}`);
+    this.url=baseUrl+'/supprimer';
+    return this.http.delete(`${this.url}/${id}`);
+  }
+  
+  verif(email,mdp) {
+    this.url=baseUrl+'/verif';
+    return this.http.get(`${this.url}/${email}/${mdp}`);
   }
 
-  deleteAll() {
-    return this.http.delete(baseUrl);
-  }
-
-  findByTitle(title) {
-    return this.http.get(`${baseUrl}?title=${title}`);
-  }
 }

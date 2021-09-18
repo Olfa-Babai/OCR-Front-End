@@ -78,7 +78,7 @@ export class NavbarComponent implements OnInit {
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
       }
-        if( titlee === '/documentation' ) {
+        if( titlee === '/signup' ) {
             return true;
         }
         else {
