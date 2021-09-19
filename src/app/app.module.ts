@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListeOrdonnancesComponent } from './liste-ordonnances/liste-ordonnances.component';
 import { AjoutOrdonnanceComponent } from './ajout-ordonnance/ajout-ordonnance.component';
 import { GestionUsersComponent } from './users/gestion-users/gestion-users.component';
+import { ListeUsersComponent } from './users/liste-users/liste-users.component';
+import { AjoutUserComponent } from './users/ajout-user/ajout-user.component';
+import { MajUserComponent } from './users/maj-user/maj-user.component';
+import { NewOrdonnanceComponent } from './new-ordonnance/new-ordonnance.component';
 
 
 @NgModule({
@@ -25,7 +29,11 @@ import { GestionUsersComponent } from './users/gestion-users/gestion-users.compo
     FooterComponent,
     ListeOrdonnancesComponent,
     AjoutOrdonnanceComponent,
-    GestionUsersComponent
+    GestionUsersComponent,
+    ListeUsersComponent,
+    AjoutUserComponent,
+    MajUserComponent,
+    NewOrdonnanceComponent
   ],
   imports: [
     BrowserModule,

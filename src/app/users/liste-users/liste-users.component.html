@@ -1,0 +1,42 @@
+
+<div class="section section-dark text-center">
+    <div class="container"><form>
+        <div _ngcontent-owl-c116 class="row ">
+            <div _ngcontent-owl-c116 class="col-sm-6"> <input _ngcontent-bqe-c116 type="text" class="form-control" width="50%" placeholder="Recherche..."/> </div> 
+            <div _ngcontent-owl-c116 class="col-sm-2"> <select class="form-control">
+                <option value="all">--</option>
+                <option value="admin">Administrateurs</option>
+                <option value="suser">Simples utilisateurs</option>
+            </select> </div>
+            <div _ngcontent-owl-c116 class="col-sm-1"> <button _ngcontent-rhj-c116 class="btn btn-success btn-just-icon"><i class="fa fa-check"></i></button> </div>
+            <div _ngcontent-owl-c116 class="col-sm-1"> <button type="reset" class="btn btn-primary btn-just-icon"><i class="fa fa-refresh"></i></button> </div>
+       </div>
+    </form>
+
+       <div class="row">
+
+           
+            <div class="col-md-4">
+                <div class="card card-profile card-plain">
+                    <div class="card-avatar">
+                        <a [routerLink]="['/maj-user']"><img src="./assets/img/faces/joe-gardner-2.jpg" alt="..."></a>
+                    </div>
+                    <div class="card-block">
+                        <a [routerLink]="['/maj-user']"> <!-- maj-user -->
+                            <div class="author">
+                                <h4 class="card-title">nom prénom</h4>
+                                <h6 class="card-category">rôle</h6>
+                            </div>
+                        </a>
+                        <p class="card-description text-center"><i class="fa fa-envelope"></i> :  mail </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a [routerLink]="['/maj-user']" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-edit"></i></a>
+                        <a href="" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

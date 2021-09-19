@@ -11,6 +11,8 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { ListeOrdonnancesComponent } from './liste-ordonnances/liste-ordonnances.component';
 import { AjoutOrdonnanceComponent } from './ajout-ordonnance/ajout-ordonnance.component';
 import { GestionUsersComponent } from './users/gestion-users/gestion-users.component';
+import { MajUserComponent } from './users/maj-user/maj-user.component';
+import { NewOrdonnanceComponent } from './new-ordonnance/new-ordonnance.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,7 +23,9 @@ const routes: Routes =[
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'liste-ordonnances',      component: ListeOrdonnancesComponent },
     { path: 'ajout-ordonnance',      component: AjoutOrdonnanceComponent },
-    { path: 'gestion-users',      component: GestionUsersComponent }
+    { path: 'gestion-users',      component: GestionUsersComponent },
+    { path: 'maj-user',      component: MajUserComponent },
+    { path: 'new-ordonnance',      component: NewOrdonnanceComponent },
 ];
 
 @NgModule({
