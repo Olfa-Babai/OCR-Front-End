@@ -11,9 +11,12 @@ const baseUrl = 'http://localhost:8080/utilisateur';
 })
 export class UtilisateurService {
   formData : SignupComponent
+ static userConnected:Utilisateur;
+  url : string;
+  
 
   constructor(private http: HttpClient) { }
-  url : string;
+
   
   getAll():Observable<Utilisateur[]> {
     this.url=baseUrl+'/afficher';
@@ -48,6 +51,18 @@ export class UtilisateurService {
     this.url=baseUrl+'/researchu';
     return this.http.get<Utilisateur[]>(`${this.url}/${mot}`);
 
+  }
+
+  setU(u:Utilisateur){
+   UtilisateurService.userConnected;
+  }
+
+  getU(){
+    return UtilisateurService.userConnected;
+  }
+
+  isCurrentAdmin(){
+    return UtilisateurService.userConnected.role=="admin";
   }
 
 }

@@ -15,7 +15,7 @@
                                   </span>
                                 </div>
                                   <label for="email">Email</label>
-                                  <input type="text" id="email" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                                  <input type="text" id="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
                               </div>
 
                               <label for="pwd">Password</label>
@@ -25,9 +25,9 @@
                                       <i class="nc-icon nc-key-25"></i>
                                   </span>
                                 </div>
-                                  <input type="password" class="form-control" placeholder="Mot de passe" (focus)="focus1=true" (blur)="focus1=false" >
+                                  <input type="password" class="form-control" [(ngModel)]="mdp" name="mdp" placeholder="Mot de passe" (focus)="focus1=true" (blur)="focus1=false" >
                               </div>
-                              <button class="btn btn-primary btn-block btn-round" type="submit" (click)="buttonClick()">se connecter</button>
+                              <button class="btn btn-primary btn-block btn-round" type="submit"  (click)="connect()">se connecter</button>
                           
                           <div class="forgot">
                               <button type="reset" class="btn btn-link btn-default">Reset</button>
