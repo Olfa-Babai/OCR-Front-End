@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Utilisateur } from './utilisateur';
 import { SignupComponent } from './examples/signup/signup.component';
+import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost:8080/utilisateur';
 
@@ -14,9 +15,9 @@ export class UtilisateurService {
   constructor(private http: HttpClient) { }
   url : string;
   
-  getAll() {
+  getAll():Observable<Utilisateur[]> {
     this.url=baseUrl+'/afficher';
-    return this.http.get(this.url);
+    return this.http.get<Utilisateur[]>(this.url);
   }
 
   get(id) {
@@ -38,9 +39,15 @@ export class UtilisateurService {
     return this.http.delete(`${this.url}/${id}`);
   }
   
-  verif(email,mdp) {
+  verif(email,mdp): Observable<Utilisateur> {
     this.url=baseUrl+'/verif';
-    return this.http.get(`${this.url}/${email}/${mdp}`);
+    return this.http.get<Utilisateur>(`${this.url}/${email}/${mdp}`);
+  }
+
+  research(mot):Observable<Utilisateur[]>{
+    this.url=baseUrl+'/researchu';
+    return this.http.get<Utilisateur[]>(`${this.url}/${mot}`);
+
   }
 
 }

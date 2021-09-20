@@ -16,19 +16,20 @@
        <div class="row">
 
            
-            <div class="col-md-4">
-                <div class="card card-profile card-plain">
+            <div class="col-md-4" *ngFor="let u of utilisateurs" >
+                <div class="card card-profile card-plain"   >
                     <div class="card-avatar">
-                        <a [routerLink]="['/maj-user']"><img src="./assets/img/faces/joe-gardner-2.jpg" alt="..."></a>
+                        <a [routerLink]="['/maj-user']" **ngIf="checkRole(u)"><img src="./assets/img/2.png" alt="..."></a>
+                        <a [routerLink]="['/maj-user']" **ngIf="!checkRole(u)"><img src="./assets/img/1.png" alt="..."></a>
                     </div>
                     <div class="card-block">
                         <a [routerLink]="['/maj-user']"> <!-- maj-user -->
                             <div class="author">
-                                <h4 class="card-title">nom prénom</h4>
-                                <h6 class="card-category">rôle</h6>
+                                <h4 class="card-title">{{ u.nom }} {{ u.prenom }}</h4>
+                                <h6 class="card-category">{{ u.role }}</h6>
                             </div>
                         </a>
-                        <p class="card-description text-center"><i class="fa fa-envelope"></i> :  mail </p>
+                        <p class="card-description text-center"><i class="fa fa-envelope"></i> :  {{ u.adresseEmail }} </p>
                     </div>
                     <div class="card-footer text-center">
                         <a [routerLink]="['/maj-user']" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-edit"></i></a>
