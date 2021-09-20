@@ -12,6 +12,13 @@ export class Utilisateur{
         prenom:string,
         adresseEmail:string,
         role:string,
-        mdp:string){}
+        mdp:string){
+            this.prenom=prenom;
+            this.nom=nom;
+            this.adresseEmail=adresseEmail;
+            this.role=role;
+            this.mdp=mdp;
+            
+        }
         
 }

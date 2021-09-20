@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-md-8 mr-auto ml-auto">
                 <h2 class="text-center">Nouvel utilisateur :</h2>
+                <label class="text-center" style="color: red;" *ngIf="test2()">Veuillez remplir tout les champs!</label>
                 <form class="contact-form">
                     <div class="row">
                         <div class="col-md-6">
@@ -11,7 +12,7 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Prénom" (focus)="focus=true" (blur)="focus=false" >
+                                <input type="text" class="form-control" placeholder="Prénom" [(ngModel)]='prenom' name="prenom" (focus)="focus=true" (blur)="focus=false" >
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -20,7 +21,7 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">  <i class="nc-icon nc-single-02"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Nom" (focus)="focus1=true" (blur)="focus1=false" >
+                                <input type="text" class="form-control" [(ngModel)]="nom" name="nom" placeholder="Nom" (focus)="focus1=true" (blur)="focus1=false" >
                             </div>
                         </div>
                     </div>
@@ -31,7 +32,7 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="nc-icon nc-email-85"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                                <input type="text" class="form-control" [(ngModel)]="email" name="email" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -40,19 +41,20 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">  <i class="nc-icon nc-email-85"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Mot de passe" (focus)="focus1=true" (blur)="focus1=false" >
+                                <input type="text" class="form-control" [(ngModel)]="mdp" name="mdp" placeholder="Mot de passe" (focus)="focus1=true" (blur)="focus1=false" >
                             </div>
                         </div>
                     </div>
+                    <label style="color: red;" *ngIf="test()">Veuillez sélectionner un rôle!</label>
                     <label>Définissez son rôle :</label>
-                     <select class="form-control">
+                     <select class="form-control" (change)="selectChangeHandler($event)">
                         <option value="all">--</option>
                         <option value="admin">Administrateur</option>
                         <option value="suser">Simples utilisateur</option>
                     </select>
                     <div class="row">
                         <div class="col-md-4 mr-auto ml-auto">
-                            <button class="btn btn-primary btn-lg btn-fill">Ajouter</button>
+                            <button class="btn btn-primary btn-lg btn-fill" (click)="ajout()">Ajouter</button>
                         </div>
                     </div>
                 </form>

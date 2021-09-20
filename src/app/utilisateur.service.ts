@@ -20,8 +20,8 @@ export class UtilisateurService {
     return this.http.get<Utilisateur[]>(this.url);
   }
 
-  get(id) {
-    return this.http.get(`${baseUrl}/${id}`);
+  get(id):Observable<Utilisateur> {
+    return this.http.get<Utilisateur>(`${baseUrl}/${id}`);
   }
 
   create(u:Utilisateur) {
