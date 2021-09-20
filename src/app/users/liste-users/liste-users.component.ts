@@ -63,6 +63,7 @@ export class ListeUsersComponent implements OnInit {
     .subscribe(
       response => {
         console.log(response);
+        this.retrieveUsers();
         this.router.navigate(['/gestion-users']);
       },
       error => {
