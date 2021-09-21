@@ -8,7 +8,7 @@ import { OcrService } from 'app/ocr.service';
 })
 export class AjoutOrdonnanceComponent implements OnInit {
   
-  fileUpload:File;
+  static fileUpload:File;
   selectedFiles=false;
   constructor(private ocrService:OcrService) { }
 
@@ -16,8 +16,9 @@ export class AjoutOrdonnanceComponent implements OnInit {
   }
   
   selectFile(event) {
-    this.fileUpload = event.target.files;
-    if(this.fileUpload==null){
+    AjoutOrdonnanceComponent.fileUpload = event.target.files.item(0);
+    console.log(AjoutOrdonnanceComponent.fileUpload)
+    if(AjoutOrdonnanceComponent.fileUpload==null){
       this.selectedFiles=false;
     }
     else{
@@ -26,15 +27,15 @@ export class AjoutOrdonnanceComponent implements OnInit {
   }
 
   done(){
-    console.log(this.fileUpload)
-      this.ocrService.upload(this.fileUpload).subscribe(
+    console.log(AjoutOrdonnanceComponent.fileUpload)
+      this.ocrService.upload(AjoutOrdonnanceComponent.fileUpload).subscribe(
         response => {
           console.log(response);
-          alert("Ajouté avec succès!")
+          alert("Ajoutée avec succès!")
         },
         error => {
           console.log(error);
-        }
-      );}
+        });
+    }
 
 }

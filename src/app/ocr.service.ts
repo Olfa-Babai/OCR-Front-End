@@ -1,4 +1,4 @@
-import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AjoutOrdonnanceComponent } from './ajout-ordonnance/ajout-ordonnance.component';
@@ -13,6 +13,7 @@ const baseUrl = 'http://localhost:8080/ocr';
 export class OcrService {
   formData : AjoutOrdonnanceComponent
   url : string;
+  s:Observable<string>;
   baseUrl='http://localhost:8080/ocr';
 
   constructor(private http: HttpClient) { }
@@ -21,13 +22,14 @@ export class OcrService {
     //const params = new HttpParams().set('file', f);
     this.url=baseUrl+'/upload';
     return this.http.post(this.url, f);
-  }  */
- 
-  upload(file: File):any{
+  }  
+ */
+
+  upload(file: File):Observable<string>{
     let body = new FormData();
     body.append('file', file);
-    this.http.post<File>('http://localhost:8080/ocr/upload', body)
-  }
+    return this.http.post<string>('http://localhost:8080/ocr/upload', body)
+  } 
 
 
 
