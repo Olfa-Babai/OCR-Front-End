@@ -18,12 +18,11 @@
                 <h2 class="text-center" >Enregistrer une ordonnance :</h2>
                 <form class="contact-form">
                     <label style="margin-right: 10px; margin-left: 100px;"> Télécharger un fichier :</label>
-                    <input type="file" #fileUpload id="fileUpload" name="fileUpload" accept="pdf/*"  />
-                    <span >{{fileName}}</span>
+                    <input type="file" name="fileUpload" id="fileUpload" (change)="selectFile($event)" accept="pdf/*"  />
                     
                     <div class="row">
                         <div class="col-md-4 mr-auto ml-auto">
-                            <button class="btn btn-primary btn-lg btn-fill">Enregistrer</button>
+                            <button class="btn btn-primary btn-lg btn-fill" [disabled]="!selectedFiles" (click)="done()">Enregistrer</button>
                         </div>
                     </div>
                 </form>

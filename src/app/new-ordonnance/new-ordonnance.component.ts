@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OcrService } from 'app/ocr.service';
 
 @Component({
   selector: 'app-new-ordonnance',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewOrdonnanceComponent implements OnInit {
 
-  constructor() { }
+  file:File;
+  constructor(private ocrService:OcrService) { }
 
   ngOnInit(): void {
   }
+
 
 }
