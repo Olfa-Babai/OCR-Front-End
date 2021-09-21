@@ -2,19 +2,27 @@
 <div class="section section-dark text-center">
     <div class="container"><form>
         <div _ngcontent-owl-c116 class="row ">
-            <div _ngcontent-owl-c116 class="col-sm-6"> <input _ngcontent-bqe-c116 type="text" class="form-control" width="50%" placeholder="Recherche..."/> </div> 
-            <div _ngcontent-owl-c116 class="col-sm-2"> <select class="form-control">
+            <div _ngcontent-owl-c116 class="col-sm-6"> <input _ngcontent-bqe-c116 type="text" class="form-control" [(ngModel)]="mot" name="mot" width="50%" placeholder="Recherche..."/> </div> 
+            <div _ngcontent-owl-c116 class="col-sm-2"> <select class="form-control" (change)="selectChangeHandler($event)">
                 <option value="all">--</option>
                 <option value="admin">Administrateurs</option>
                 <option value="suser">Simples utilisateurs</option>
             </select> </div>
-            <div _ngcontent-owl-c116 class="col-sm-1"> <button _ngcontent-rhj-c116 class="btn btn-success btn-just-icon"><i class="fa fa-check"></i></button> </div>
+            <div _ngcontent-owl-c116 class="col-sm-1"> <button _ngcontent-rhj-c116 class="btn btn-success btn-just-icon" (click)="researchu(mot)" ><i class="fa fa-check"></i></button> </div>
             <div _ngcontent-owl-c116 class="col-sm-1"> <button type="reset" class="btn btn-primary btn-just-icon"><i class="fa fa-refresh" (click)="refreshContent()"></i></button> </div>
        </div>
+       <br>
+       <div _ngcontent-owl-c116 class="row ">
+        <div _ngcontent-owl-c116 class="col-sm-2"> </div>
+            <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary" (click)="trier(0)"><i class="fa fa-arrow-down"></i> Prénom </button> </div>
+            <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary" (click)="trier(2)"><i class="fa fa-arrow-up"></i> Prénom </button> </div>
+            <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary" (click)="trier(1)"><i class="fa fa-arrow-down"></i> Nom </button> </div>
+            <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary" (click)="trier(3)"><i class="fa fa-arrow-up"></i> Nom </button> </div>
+       </div>
+       
     </form>
 
-       <div class="row">
-           
+       <div class="row">           
             <div class="col-md-4" *ngFor="let u of utilisateurs" >
                 <div class="card card-profile card-plain"   >
                     <div class="card-avatar">
@@ -31,7 +39,7 @@
                         <p class="card-description text-center"><i class="fa fa-envelope"></i> :  {{ u.adresseEmail }} </p>
                     </div>
                     <div class="card-footer text-center">
-                        <a [routerLink]="['/maj-user']" class="btn btn-link btn-just-icon btn-neutral" ><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-link btn-just-icon btn-neutral" (click)="maj(u)"><i class="fa fa-edit"></i></a>
                         <a class="btn btn-link btn-just-icon btn-neutral" (click)="deleteUser(u.id)"><i class="fa fa-times">{{u.id}}</i></a>
                     </div>
                 </div>

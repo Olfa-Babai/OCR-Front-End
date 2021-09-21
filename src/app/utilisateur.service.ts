@@ -51,7 +51,7 @@ export class UtilisateurService {
     this.url=baseUrl+'/researchu';
     return this.http.get<Utilisateur[]>(`${this.url}/${mot}`);
 
-  }
+  } 
 
   setU(u:Utilisateur){
    UtilisateurService.userConnected;
@@ -63,6 +63,21 @@ export class UtilisateurService {
 
   isCurrentAdmin(){
     return UtilisateurService.userConnected.role=="admin";
+  }
+
+  triu(pos:number):Observable<Utilisateur[]>{
+    this.url=baseUrl+'/tri';
+    return this.http.get<Utilisateur[]>(`${this.url}/${pos}`);
+  }
+
+  admins():Observable<Utilisateur[]> {
+    this.url=baseUrl+'/admins';
+    return this.http.get<Utilisateur[]>(this.url);
+  }
+
+  susers():Observable<Utilisateur[]> {
+    this.url=baseUrl+'/susers';
+    return this.http.get<Utilisateur[]>(this.url);
   }
 
 }

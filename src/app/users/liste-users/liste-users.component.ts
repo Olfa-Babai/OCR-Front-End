@@ -19,6 +19,9 @@ export class ListeUsersComponent implements OnInit {
     role:'',
     mdp:'',
   };
+  static uSelected:Utilisateur;
+  mot:string;
+  selectedChoice: string;
 
   constructor(private utilisateurService:UtilisateurService, private router:Router) { }
 
@@ -69,6 +72,52 @@ export class ListeUsersComponent implements OnInit {
       error => {
         console.log(error);
       });
+  }
+
+  maj(u:Utilisateur){
+    ListeUsersComponent.uSelected=u;
+    this.router.navigate(['/maj-user']);
+  }
+
+  trier(pos:number){
+    this.utilisateurService.triu(pos)
+      .subscribe(
+        data =>{
+          this.utilisateurs=data;
+          console.log(data)
+        });
+  }
+
+  researchu(mot:string){
+    this.utilisateurService.research(mot)
+    .subscribe(
+      data =>{
+        this.utilisateurs=data;
+        console.log(data)
+      });
+  }
+
+  selectChangeHandler (event: any) {
+    this.selectedChoice = event.target.value;
+    if(this.selectedChoice=="all"){
+      this.retrieveUsers()
+    }
+    else if (this.selectedChoice=="admin"){
+      this.utilisateurService.admins()
+    .subscribe(
+      data =>{
+        this.utilisateurs=data;
+        console.log(data)
+      });
+    }
+    else if (this.selectedChoice=="suser"){
+      this.utilisateurService.susers()
+    .subscribe(
+      data =>{
+        this.utilisateurs=data;
+        console.log(data)
+      });
+    }
   }
 
 }

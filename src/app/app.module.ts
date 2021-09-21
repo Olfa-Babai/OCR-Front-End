@@ -20,6 +20,8 @@ import { ListeUsersComponent } from './users/liste-users/liste-users.component';
 import { AjoutUserComponent } from './users/ajout-user/ajout-user.component';
 import { MajUserComponent } from './users/maj-user/maj-user.component';
 import { NewOrdonnanceComponent } from './new-ordonnance/new-ordonnance.component';
+import { ShowOrdonnanceComponent } from './liste-ordonnances/show-ordonnance/show-ordonnance.component';
+import { ModUserComponent } from './users/liste-users/mod-user/mod-user.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { NewOrdonnanceComponent } from './new-ordonnance/new-ordonnance.componen
     ListeUsersComponent,
     AjoutUserComponent,
     MajUserComponent,
-    NewOrdonnanceComponent
+    NewOrdonnanceComponent,
+    ShowOrdonnanceComponent,
+    ModUserComponent
   ],
   imports: [
     BrowserModule,

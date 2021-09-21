@@ -12,32 +12,36 @@
     </div>
 </div>
 
+<app-show-ordonnance [dataO]="currentO" [state]="resp" [ordonnanceService]="ordonnanceService" *ngIf="resp"></app-show-ordonnance>
+<button class="btn btn-outline-default btn-round" style="margin-left: 1100px;" (click)="reFresh()" *ngIf="resp"><i class="fa fa-level-up"></i></button>
 <div class="main">
     <div class="section text-center">
         <div class="container">
                 <form>
                     <div _ngcontent-owl-c116 class="row ">
-                        <div _ngcontent-owl-c116 class="col-sm-3"> <input _ngcontent-bqe-c116 type="text" class="form-control" width="50%" placeholder="Recherche..."/> </div> 
-                        <div _ngcontent-owl-c116> <button _ngcontent-rhj-c116 class="btn btn-success btn-just-icon"><i class="fa fa-check"></i></button> </div>
-                        <div _ngcontent-owl-c116 > <button type="reset" class="btn btn-primary btn-just-icon"><i class="fa fa-refresh"></i></button> </div>
-                        <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary"><i class="fa fa-arrow-down"></i> Medecin </button> </div>
-                        <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Medecin </button> </div>
-                        <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary"><i class="fa fa-arrow-down"></i> Patient </button> </div>
-                        <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Patient </button> </div>
+                        <div _ngcontent-owl-c116 class="col-sm-3"> <input _ngcontent-bqe-c116 [(ngModel)]="mot" name="mot" type="text" class="form-control" width="50%" placeholder="Recherche..."/> </div> 
+                        <div _ngcontent-owl-c116> <button _ngcontent-rhj-c116 class="btn btn-success btn-just-icon" (click)="researcho(mot)"><i class="fa fa-check"></i></button> </div>
+                        <div _ngcontent-owl-c116 > <button type="reset" class="btn btn-primary btn-just-icon" (click)="retrieveUsers()"><i class="fa fa-refresh"></i></button> </div>
+
+                        <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary" (click)="trier(0)"><i class="fa fa-arrow-down"></i> Medecin </button> </div>
+                        <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary" (click)="trier(4)"><i class="fa fa-arrow-up"></i> Medecin </button> </div>
+                        <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary" (click)="trier(1)"><i class="fa fa-arrow-down"></i> Patient </button> </div>
+                        <div _ngcontent-owl-c116 class="col-sm-2"> <button type="reset" class="btn btn-primary" (click)="trier(5)"><i class="fa fa-arrow-up"></i> Patient </button> </div>
                    </div>
                 </form>
                 <br> <br>
             <div class="row">
                 
-                <div class="col-md-3">
+                <div class="col-md-3" *ngFor="let o of ordonnances">
                     <div class="info">
-                        <div class="icon icon-danger">
-                            <i class="nc-icon nc-chart-bar-32"></i>
+                        <div class="icon icon-default">
+                            <i class="fa fa-file-text"></i>
                         </div>
                         <div class="description">
-                            <h4 class="info-title">Médecin</h4>
-                            <p>Esm patient</p>
-                            <p> <i class="fa fa-calendar-check-o"></i> : dateConsultation </p>
+                            <h4 class="info-title"><i class="fa fa-user-md"></i> :{{ o.nomMedecin }}</h4>
+                            <p>{{ o.nomPatient }}</p>
+                            <p> <i class="fa fa-calendar-check-o"></i> : {{o.dateConsultation}} </p>
+                            <a class="btn btn-link btn-just-icon btn-primary" (click)="showOrdonnance(o)"><i class="fa fa-eye"></i></a>
                         </div>
                     </div>
                 </div>

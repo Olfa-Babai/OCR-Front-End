@@ -13,6 +13,7 @@ import { AjoutOrdonnanceComponent } from './ajout-ordonnance/ajout-ordonnance.co
 import { GestionUsersComponent } from './users/gestion-users/gestion-users.component';
 import { MajUserComponent } from './users/maj-user/maj-user.component';
 import { NewOrdonnanceComponent } from './new-ordonnance/new-ordonnance.component';
+import { ShowOrdonnanceComponent } from './liste-ordonnances/show-ordonnance/show-ordonnance.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,7 +22,9 @@ const routes: Routes =[
     { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
-    { path: 'liste-ordonnances',      component: ListeOrdonnancesComponent },
+    { path: 'liste-ordonnances',      component: ListeOrdonnancesComponent, children:[
+      { path: 'show-ordonnance', component: ShowOrdonnanceComponent}
+    ] },
     { path: 'ajout-ordonnance',      component: AjoutOrdonnanceComponent },
     { path: 'gestion-users',      component: GestionUsersComponent },
     { path: 'maj-user',      component: MajUserComponent },

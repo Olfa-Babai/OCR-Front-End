@@ -1,0 +1,21 @@
+<div class="section profile-content" >
+    <div class="container">
+        <div class="owner">
+            <div class="avatar">
+                <img src="./assets/img/os.png" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+            </div>
+            <div class="name">
+                <h4 > {{dataO.nomMedecin}} </h4>
+                <h6 >{{dataO.dateConsultation}} </h6> <br/>
+                <h6 class="description"> {{dataO.nomPatient}} | {{dataO.dateNaissance}} </h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ml-auto mr-auto text-center" >
+                <p *ngFor="let m of dataO.medicaments"> {{ m.nom }} <i class="fa fa-arrow-right"></i> {{m.modeEmploi}} </p>
+                <br>
+                <button class="btn btn-outline-danger btn-round" (click)="deleteOrdonnance(dataO.id)"><i class="fa fa-times"></i> Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
